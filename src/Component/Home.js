@@ -14,12 +14,41 @@ export default function Home() {
     const ChangeValues = (e) => {
         setvalues({ ...values, [e.target.name]: e.target.value });
     };
+
+    const rangeSelectedText = () => {
+        let textComponent = document.getElementById('exampleFormControlTextarea1');
+        let selectedText;
+      
+        if (textComponent.selectionStart !== undefined)
+        {// Standards Compliant Version
+          let startPos = textComponent.selectionStart;
+          let endPos = textComponent.selectionEnd;
+          selectedText = textComponent.value.substring(startPos, endPos);
+        }
+        else if (document.selection !== undefined)
+        {// IE Version
+          textComponent.focus();
+          let sel = document.selection.createRange();
+          selectedText = sel.text;
+        }
+      
+        return selectedText;
+      };
+
+
     return (
         <div className='container' >
             <div className="mb-3">
                 <form>
                     <div className="form-group my-3">
-                        <label htmlFor="exampleFormControlTextarea1" style={{ "marginTop": "50px", "color": mode === "light" ? "" : "#dee4ce" }} className="form-label fontMain">Enter Your Text &nbsp; <i className={`fas fa-${playing === true ? "pause" : "play"}`} onClick={() => speak(values.text)} ></i></label>
+                        <label htmlFor="exampleFormControlTextarea1" style={{ "marginTop": "50px", "color": mode === "light" ? "" : "#dee4ce" }} className="form-label fontMain">Enter Your Text &nbsp; <i className={`fas fa-${playing === true ? "pause" : "play"}`} onClick={() => {
+                            if (rangeSelectedText()){
+                                speak(rangeSelectedText())
+                            }else{
+                                speak(values.text);
+                            }
+                            
+                        }} ></i></label>
                         <textarea className="form-control" id="exampleFormControlTextarea1" style={{ "backgroundColor": mode === "light" ? "" : "#667574", "color": mode === "light" ? "" : "white" }} rows="6" value={values.text} name='text' onChange={ChangeValues}></textarea>
                     </div>
 
@@ -52,7 +81,13 @@ export default function Home() {
                         <input type="text" style={{ "backgroundColor": mode === "light" ? "" : "#667574", "color": mode === "light" ? "" : "white" }} className="form-control" aria-label="Text input with dropdown button" value={selectedVoice} disabled={true}/>
                     </div>
                     <div className='container'>
-                        <button type="button" className="btn btn-outline-primary" title={`${playing !== true ? "Play Note" : "Stop Playing"}`} ><i className={`fas fa-${playing === true ? "pause" : "play"}`} onClick={() => speak(values.text)} ></i>&nbsp;{playing !== true ?"Play":"Pause"}</button>
+                        <button type="button" className="btn btn-outline-primary" title={`${playing !== true ? "Play Note" : "Stop Playing"}`} ><i className={`fas fa-${playing === true ? "pause" : "play"}`} onClick={() => {
+                            if (rangeSelectedText()){
+                                speak(rangeSelectedText());
+                            }else{
+                                speak(values.text);
+                            }
+                        }} ></i>&nbsp;{playing !== true ?"Play":"Pause"}</button>
                     </div>
 
                 </form>

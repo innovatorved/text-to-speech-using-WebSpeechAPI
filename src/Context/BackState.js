@@ -27,7 +27,7 @@ const BackState = (props) => {
         }
         setvoices(synth.getVoices());
         setselectedVoice(localStorage.getItem("voice"));
-    }, [])
+    }, [synth])
 
     const ChangeMode = () => {
         if (mode === "light"){
@@ -54,15 +54,15 @@ const BackState = (props) => {
         }
     }
 
-    const speak = () => {
-      if (synth.speaking || values.text === null || values.text === "") {
+    const speak = (txt) => {
+      if (synth.speaking || txt === null || txt === "") {
         // console.error('Already speaking...');
         synth.cancel();
         return;
       }
   
       // Check if speaking
-      const textInput = values.text;
+      const textInput = txt;
   
   
       if (textInput !== '') {
