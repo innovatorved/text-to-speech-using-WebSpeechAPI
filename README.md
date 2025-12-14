@@ -1,10 +1,9 @@
+# Text to Speech (Web Speech API)
 
-![Logo](https://raw.githubusercontent.com/innovatorved/text-to-speech-using-WebSpeechAPI/main/public/favicon.ico)
+A small React app (Vite + TypeScript + Tailwind) that:
 
-
-# Text to Speech using Web Speech API
-
-Uses Browser Speech API to convert text into Speech supports in various language
+- Speaks text using the browser Web Speech API
+- Lets you quickly manipulate text (case changes, space cleanup, copy/clear)
 
 ## Images
 
@@ -28,3 +27,17 @@ I'm a Developer i will feel the code then write .
 ## Support
 
 For support, email vedgupta@protonmail.com
+
+## Development
+
+This repo uses Bun.
+
+- Install deps: `bun install`
+- Run dev server: `bun run dev`
+- Production build: `bun run build`
+- Preview build: `bun run preview`
+
+## Deployment
+
+- Vite builds to `dist/`.
+- Firebase Hosting is configured to serve `dist/` and rewrite all routes to `/index.html` (SPA).
