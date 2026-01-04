@@ -1,6 +1,6 @@
 {
-  "short_name": "Speech to Text",
-  "name": "Web site for text to speech using Web Text API",
+  "short_name": "Native Speech",
+  "name": "Native Browser Speech Engine",
   "icons": [
     {
       "src": "favicon.ico",

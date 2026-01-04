@@ -1,15 +1,10 @@
-# Text to Speech (Web Speech API)
+# Native Browser Speech Engine
 
 A small React app (Vite + TypeScript + Tailwind) that:
 
-- Speaks text using the browser Web Speech API
+- Speaks text using the Native Browser Speech Engine (Web Speech API)
 - Lets you quickly manipulate text (case changes, space cleanup, copy/clear)
 
-## Images
-
-#### Main Page
-
-![WebInterface](https://raw.githubusercontent.com/innovatorved/text-to-speech-using-WebSpeechAPI/main/Screenshot%202022-01-19%20at%2001-26-55%20Text%20to%20Speech.png)
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

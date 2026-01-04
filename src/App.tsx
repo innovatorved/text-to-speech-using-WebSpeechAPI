@@ -292,7 +292,7 @@ export default function App() {
               </div>
               <div>
                 <h1 className="text-lg font-semibold text-gh-fg dark:text-ghd-fg">
-                  Text to Speech
+                  Native Browser Speech Engine
                 </h1>
                 <p className="text-xs text-gh-fg-muted dark:text-ghd-fg-muted">
                   Powered by Web Speech API
